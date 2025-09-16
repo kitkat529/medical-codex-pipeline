@@ -1,0 +1,6 @@
+.venv/
+*.txt
+*.xml
+*.zip
+input/
+raw_downloads/

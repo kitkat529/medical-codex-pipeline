@@ -28,3 +28,6 @@ npi_small = npi_small.rename({
 })
 output_path = "output\\npi_small.csv"
 npi_small.write_csv(output_path)
+
+### Make Parquet file to decrease file size for big data sets
+npi_small.write_parquet("output\\npi_small.parquet")

@@ -17,7 +17,7 @@ with open(file_path, 'r', encoding='utf-8') as file:
         remaining_text = line[16:]  # Text after position 16
         
         # Split by 4+ consecutive spaces to separate description from description_detailed
-        parts = re.split(r'\s{4,}', remaining_text, 1)
+        parts = re.split(r'\s{4,}', remaining_text, maxsplit=1)
 
         # Extract description and description_detailed
         description = parts[0].strip() if len(parts) > 0 else ""
@@ -35,5 +35,8 @@ with open(file_path, 'r', encoding='utf-8') as file:
 ## Create a DataFrame from the parsed codes
 icd10cm_codes = pd.DataFrame(codes)
 
+icd10cm_codes_small = icd10cm_codes[['code', 'description']].copy()
+icd10cm_codes_small["last_updated"] = "09-18-2025"
+
 ## Save the DataFrame to a CSV file
-icd10cm_codes.to_csv("output/icd10cm_order_2025.csv", index=False)
+icd10cm_codes_small.to_csv("output/icd10cm_small.csv", index=False)

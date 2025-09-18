@@ -4,3 +4,7 @@
 *.zip
 input/
 raw_downloads/
+
+*.txt
+*.xlsx
+*.rrf
